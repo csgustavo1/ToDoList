@@ -20,26 +20,22 @@
 <div class="mb-3">
     <%= form.label 'Descrição', :class => 'form-label' %>
     <%= form.text_field :description, :class => 'form-control' %>
-  </div>
+</div>
 
-  <br>
-
-  <div class="mb-3 form-check">
-    <%= form.label 'Completa?', :class => 'form-check-label' %>
-    <%= form.check_box :completed, :class => 'form-check-input' %>
-  </div>
+<%= form.label 'Prioridade', :class => 'form-label' %>
+<%= form.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
 
   <br>
   <br>
 
+<%= form.label 'Data de Conclusão', :class => 'form-label' %>
+<%= form.text_field :date, "data-provide" => 'datepicker', class:'form-control input-small ano', "data-mask" => "9999", autocomplete: 'off' %>
 
-  <%# <%= form_for(@task) do |f| %>
-  <%#= fields_for :items do |item| %>
-    <%#= item.number_field :postition %>
-   <%#= item.collection_select(:task_id&, @items, :id, :name) %>
-    <%#= item.checkbox :_destroy, label: 'Delete?' %>
-  <%# end %>
-<%# end %>
+  <br>
+  <br>
+
+ <%= form.label 'Completa?', :class => 'form-check-label' %>
+ <%= form.check_box :completed, :class => 'form-check-input' %>
 
    <br>
    <br>
@@ -48,3 +44,19 @@
     <%= form.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker(
+        autoclose: true,
+        clearBtn: true,
+        language: 'pt-BR',
+        viewMode: "years",
+        minViewMode: "years",
+        format: "yyyymm",
+        todayBtn: 'linked',
+        enableOnReadonly: false
+    );
+  });
+</script>
