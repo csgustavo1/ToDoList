@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :site do
+    get 'home/index'
+  end
   namespace :profiles_backoffice do
     get 'welcome/index'
   end
@@ -8,7 +11,9 @@ Rails.application.routes.draw do
   devise_for :profiles
   devise_for :admins
   resources :tasks
+
+  get 'inicio', to:'site/home#index'
   
-  root 'welcome#index'
+  root 'site/home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
