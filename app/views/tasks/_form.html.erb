@@ -25,8 +25,13 @@
 <%= form.label 'Prioridade', :class => 'form-label' %>
 <%= form.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
 
-  <br>
-  <br>
+<br>
+
+<div class="mb-3">
+    <%= form.label 'Anexar Arquivo', :class => 'form-label' %>
+    <%= form.file_field :archive, :class => 'form-control' %>
+</div>
+
 
 <%= form.label 'Data de Conclusão', :class => 'form-label' %>
 <%= form.text_field :date, "data-provide" => 'datepicker', class:'form-control input-small ano', "data-mask" => "9999", autocomplete: 'off' %>
