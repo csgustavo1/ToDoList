@@ -3,6 +3,9 @@ class Task < ApplicationRecord
 
     enum priority: { baixa: 0, media: 1, alta: 2 }
 
+    validates :name, :presence => true
+    validates :description, :presence => true
+
 
     def archive=(value)
         if value.is_a?(String)

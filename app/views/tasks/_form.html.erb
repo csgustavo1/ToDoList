@@ -1,18 +1,13 @@
 <%= form_with(model: task, local: true) do |form| %>
   <% if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+    <div class="alert alert-danger">
+      <h4>Os campos abaixo não podem ficar em branco</h4>
 
-      <ul>
-      <% task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
 
 
-  <div class="mb-3">
+<div class="mb-3">
     <%= form.label 'Nome', :class => 'form-label' %>
     <%= form.text_field :name, :class => 'form-control' %>
   </div>
@@ -34,34 +29,21 @@
 
 
 <%= form.label 'Data de Conclusão', :class => 'form-label' %>
-<%= form.text_field :date, "data-provide" => 'datepicker', class:'form-control input-small ano', "data-mask" => "9999", autocomplete: 'off' %>
+<%= form.text_field :date, "data-provide" => 'datepicker', class:'form-control input-small ano' %>
 
   <br>
   <br>
 
- <%= form.label 'Completa?', :class => 'form-check-label' %>
+ <%= form.label 'Finalizar Tarefa?', :class => 'form-check-label' %>
  <%= form.check_box :completed, :class => 'form-check-input' %>
 
    <br>
    <br>
 
   <div class="col-12">
-    <%= form.submit :class => 'btn btn-primary' %>
+    <%= form.submit "Criar Todo", :class => 'btn btn-primary' %>
+    <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>
   </div>
 <% end %>
 
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker(
-        autoclose: true,
-        clearBtn: true,
-        language: 'pt-BR',
-        viewMode: "years",
-        minViewMode: "years",
-        format: "yyyymm",
-        todayBtn: 'linked',
-        enableOnReadonly: false
-    );
-  });
-</script>
