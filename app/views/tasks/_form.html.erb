@@ -1,8 +1,7 @@
 <%= form_with(model: task, local: true) do |form| %>
-  <%# byebug %>
   <% if task.errors.any? %>
     <div class="alert alert-danger" >
-      <h4>Os campos abaixo não podem ficar em branco</h4>
+      <h5>Os campos abaixo não podem ficar em branco</h5>
 
     </div>
   <% end %>
@@ -11,7 +10,7 @@
 <div class="mb-3">
     <%= form.label 'Nome', :class => 'form-label' %>
     <%= form.text_field :name, :class => 'form-control' %>
-  </div>
+</div>
 
 <div class="mb-3">
     <%= form.label 'Descrição', :class => 'form-label' %>
@@ -57,10 +56,8 @@
 <br>
 <br>
 
-<div class="col-12">
-    <%= form.submit "To Do", :class => 'waves-effect waves-light btn'%>
-    <%= link_to "Voltar", tasks_path, :class => 'waves-effect waves-light btn' %>
-</div>
+  <%= form.submit "To Do", :class => 'waves-effect waves-light btn'%>
+  <%= link_to "Voltar", tasks_path, :class => 'waves-effect waves-light btn' %>
 
 <% end %>
 

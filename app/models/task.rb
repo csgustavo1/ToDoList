@@ -8,6 +8,7 @@ class Task < ApplicationRecord
     enum priority: { baixa: 0, media: 1, alta: 2 }
 
     #validates
+    validates :name, presence: true
 
     #save archive...................................................................
     def archive=(value)

@@ -9,8 +9,8 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1 or /tasks/1.json
-  def show
-  end
+  #def show
+  #end
 
   # GET /tasks/new
   def new

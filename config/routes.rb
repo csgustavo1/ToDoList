@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :tasks
 
-  get 'inicio', to:'site/home#index'
+  #get 'inicio', to:'site/home#index'
   
   root 'site/home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

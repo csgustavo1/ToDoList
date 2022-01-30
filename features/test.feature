@@ -2,9 +2,8 @@
 # language: pt
 
 Funcionalidade: Teste Inicial
-    Objetivo fazer os primeiros testes da aplicação
+   Objetivo realizar o primeiro teste da aplicação
 
-    @javascript
-    Cenário: Abrir o site
-     Dado que eu acessei a home page
-     Então devo ver o site
+@javascript
+Cenário: Abrir o site
+   Dado que eu acessei a home page

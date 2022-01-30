@@ -3,10 +3,7 @@
 <br>
 <br>
 
-<div class="form-control">
-  <strong>Nome:</strong>
-  <%= @task.name %>
-</div>
+<h3> Visualizando To Do <%= @task.name %> </h3>
 
 
 <br>
@@ -21,6 +18,20 @@
 <br>
 
 <div class="form-control">
+  <p>Items:</p>
+    <% @task.items.each do |i| %>
+    <ul>
+      <li> <%= i.name %> </li>
+    </ul>
+
+<% end %>
+
+</div>
+
+  <br>
+  <br>
+
+<div class="form-control">
   <strong>Prioridade:</strong>
   <%= @task.priority %>
 </div>
@@ -30,3 +41,6 @@
 
 <%= link_to 'Editar', edit_task_path(@task), :class => "btn btn-primary" %> |
 <%= link_to 'Voltar', tasks_path, :class => "btn btn-primary"%>
+
+<br>
+<br>
