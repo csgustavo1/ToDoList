@@ -1,3 +1,6 @@
 class Item < ApplicationRecord
-    belongs_to tasks
+
+  #relationships...................................................................
+  belongs_to :task
+  
 end

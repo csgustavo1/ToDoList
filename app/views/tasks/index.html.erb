@@ -4,14 +4,29 @@
 
 <br>
 
-<table class="table table-bordered">
-  <thead class="table-dark">
+  <% unless @tasks.present? %>
+      <div class="card border-dark text-center">
+        <div class="card-header">
+          <strong>To Do List</strong>
+       </div>
+         <div class="card-body">
+            <h2 class="card-title">Não existem to do lists ainda!</h2>
+            <br>
+       <%= link_to 'Add To do', new_task_path, :class => 'btn btn-success' %>
+  
+      </div>
+  </div>
+</div>
+  
+  <% else %> 
+
+<table class="responsive-table">
+  <thead>
     <tr>
       <th>#</th>
       <th>Nome</th>
       <th>Descrição</th>
       <th>Prioridade</th>
-      <th>Data de Conclusão</th>
       <th>Editar Tarefa</th>
       <th>Deletar Tarefa</th>
     </tr>
@@ -21,15 +36,14 @@
     <% @tasks.each do |task| %>
     
      <% if task.completed  %>
-
+      
       <tr class="table-secondary">
       <td><%= task.id %></td>
       <td class="striker"><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
-         <td><%= task.date %></td>
-        <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info" %></td>
-        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => "btn btn-danger"%></td>
+        <td><%= link_to 'Editar', edit_task_path(task), :class => "btn waves-effect waves-light" %></td>
+        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
       </tr>
 
      <% else %>
@@ -39,9 +53,8 @@
       <td><%= task.name %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
-        <td><%= task.date %></td>
         <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info" %></td>
-        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => "btn btn-danger"%></td>
+        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
       </tr>
 
      <% end %>
@@ -52,4 +65,8 @@
 
 <br>
 
-<%= link_to 'Nova Tarefa', new_task_path, :class => 'btn btn-success' %>
+ <%= link_to 'Add To do', new_task_path, :class => 'btn btn-success' %>
+
+<% end %>
+
+

@@ -1,12 +1,15 @@
 class Task < ApplicationRecord
-    has_many :items, -> { order(position: :asc) }
 
+    #relationships...................................................................
+    has_many :items, inverse_of: :task , dependent: :destroy
+    accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
+
+    #enums...........................................................................
     enum priority: { baixa: 0, media: 1, alta: 2 }
 
-    validates :name, :presence => true
-    validates :description, :presence => true
+    #validates
 
-
+    #save archive...................................................................
     def archive=(value)
         if value.is_a?(String)
             super(value)

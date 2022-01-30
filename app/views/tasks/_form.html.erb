@@ -1,6 +1,7 @@
 <%= form_with(model: task, local: true) do |form| %>
+  <%# byebug %>
   <% if task.errors.any? %>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger" >
       <h4>Os campos abaixo não podem ficar em branco</h4>
 
     </div>
@@ -17,6 +18,24 @@
     <%= form.text_field :description, :class => 'form-control' %>
 </div>
 
+ <h4> Items </h4>
+
+ <div id="items">
+    <%= form.fields_for :items do |ff| %>
+
+    <%= render 'item_fields', f: ff %>
+
+    <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'Adicionar item', form, :items, :class => 'btn waves-effect waves-light blue right white-text' %>
+        <br><br>
+      </div>
+  </div>   
+
+<br>
+<br>
+
 <%= form.label 'Prioridade', :class => 'form-label' %>
 <%= form.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
 
@@ -27,23 +46,23 @@
     <%= form.file_field :archive, :class => 'form-control' %>
 </div>
 
+<p>
+  <label>
+    <%= form.check_box(:completed) %>
+     <span style="font-weight: bold;">Tarefa Finalizada</span>
+  </label>
+</p>
 
-<%= form.label 'Data de Conclusão', :class => 'form-label' %>
-<%= form.text_field :date, "data-provide" => 'datepicker', class:'form-control input-small ano' %>
 
-  <br>
-  <br>
+<br>
+<br>
 
- <%= form.label 'Finalizar Tarefa?', :class => 'form-check-label' %>
- <%= form.check_box :completed, :class => 'form-check-input' %>
+<div class="col-12">
+    <%= form.submit "To Do", :class => 'waves-effect waves-light btn'%>
+    <%= link_to "Voltar", tasks_path, :class => 'waves-effect waves-light btn' %>
+</div>
 
-   <br>
-   <br>
-
-  <div class="col-12">
-    <%= form.submit "Criar Todo", :class => 'btn btn-primary' %>
-    <%= link_to "Voltar", :back, :class => 'btn btn-primary' %>
-  </div>
 <% end %>
+
 
 

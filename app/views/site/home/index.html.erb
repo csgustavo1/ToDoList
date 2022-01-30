@@ -1,20 +1,17 @@
 <%= render 'navbar_welcome' %>
 
-<div class="card text-center">
-  <div class="card-header">
-    <strong>To Do List</strong>
-  </div>
+<div class="card border-dark text-center">
   <div class="card-body">
     <h2 class="card-title">Seja bem-vindo!</h2>
-    <%= link_to image_tag('To-Do-List-feature.jpg') %>  
+    <%= image_tag("istockphoto-1092571024-612x612.jpg")  %> 
     <br>
     <br>
    <%= link_to 'Criar Tarefas', tasks_path, :class => "btn btn-dark"%>
   </div>
 
   <div class="card-footer text-muted">
-     <span>
+     <h6>
         Desenvolvido por <strong>Gustavo da Silva Carvalho</strong> 
-    </span>
+    </h6>
   </div>
 </div>

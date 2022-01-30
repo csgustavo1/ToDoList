@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  task: one
 
 two:
   name: MyString
+  task: two

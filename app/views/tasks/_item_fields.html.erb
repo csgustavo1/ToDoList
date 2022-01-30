@@ -1,0 +1,11 @@
+<%#byebug%>
+<div class="nested-fields">
+  <div class="field">
+  
+    <%= f.label 'Nome do Item', :class => 'form-label' %>   
+    <%= f.text_field :name, :class => 'form-control' %>
+
+    <%= link_to_remove_association "remover item", f, :class => 'btn btn-danger' %>
+
+  </div>
+</div>

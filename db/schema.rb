@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_221456) do
+ActiveRecord::Schema.define(version: 2022_01_29_175728) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
+    t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "task_id"
+    t.index ["task_id"], name: "index_items_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -26,7 +27,6 @@ ActiveRecord::Schema.define(version: 2022_01_28_221456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority", default: 0
-    t.date "date"
     t.string "archive"
   end
 
