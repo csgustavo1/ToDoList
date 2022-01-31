@@ -17,7 +17,7 @@
     <%= form.text_field :description, :class => 'form-control' %>
 </div>
 
- <h4> Items </h4>
+ <h4> Itens </h4>
 
  <div id="items">
     <%= form.fields_for :items do |ff| %>
@@ -56,10 +56,12 @@
 <br>
 <br>
 
-  <%= form.submit "To Do", :class => 'waves-effect waves-light btn'%>
-  <%= link_to "Voltar", tasks_path, :class => 'waves-effect waves-light btn' %>
+<%= form.submit "To Do", :class => 'waves-effect waves-light btn-large'%>
+<%= link_to "Voltar", tasks_path, :class => 'waves-effect waves-light btn-large' %>
 
 <% end %>
 
+<br>
+<br>
 
 

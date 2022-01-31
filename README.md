@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  ruby '2.7.0'
 
-* System dependencies
+* Rails version
+  'rails', '~> 5.2.6'
+   
+* Database
+  gem 'sqlite3'
 
-* Configuration
+* Instruções para executar 
+  Após clonar o projeto do git em um diretório
+  rode o comando rails s
+  Rode o comando mailcatcher para executar o servidor de emails na porta http://127.0.0.1:1080/
 
-* Database creation
+* Dependencias 
+  Rode o comando bundle update e depois bundle install
 
-* Database initialization
+* Dependências javascript 
+  Instale o yarn
+  Instale o bootstrap 
+  instale Jquery 
+        
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

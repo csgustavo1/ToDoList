@@ -1,4 +1,4 @@
-<h2>Forgot your password?</h2>
+<h2>Esqueceu sua senha?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -9,8 +9,9 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Envie-me instruções de redefinição de senha", :class => 'waves-effect waves-light btn' %>
+    <%= link_to "Voltar", user_session_path, :class => 'btn btn-primary' %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+

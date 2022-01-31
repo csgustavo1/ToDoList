@@ -1,5 +1,5 @@
 <%= render 'navbar' %>
-
+<br>
 <h4>To do List <%= Time.now.strftime("%d/%m/%Y") %> </h4>
 
 <br>
@@ -27,8 +27,9 @@
       <th>Nome</th>
       <th>Descrição</th>
       <th>Prioridade</th>
-      <th>Editar Tarefa</th>
-      <th>Deletar Tarefa</th>
+      <th>Editar To do</th>
+      <th>Deletar To do</th>
+      <th>Visualizar To do</th>
     </tr>
   </thead>
 
@@ -40,10 +41,11 @@
       <tr class="table-secondary">
       <td><%= task.id %></td>
       <td class="striker"><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.priority %></td>
-        <td><%= link_to 'Editar', edit_task_path(task), :class => "btn waves-effect waves-light" %></td>
-        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
+      <td><%= task.description %></td>
+      <td><%= task.priority %></td>
+      <td><%= link_to 'Editar', edit_task_path(task), :class => "btn waves-effect waves-light" %></td>
+      <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
+      <td><%= link_to 'Visualizar', task, action: "show", :class => "btn btn-info" %></td>
       </tr>
 
      <% else %>
@@ -51,10 +53,11 @@
       <tr>
       <td><%= task.id %></td>
       <td><%= task.name %></td>
-        <td><%= task.description %></td>
-        <td><%= task.priority %></td>
-        <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info" %></td>
-        <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
+      <td><%= task.description %></td>
+      <td><%= task.priority %></td>
+      <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info" %></td>
+      <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
+      <td><%= link_to 'Visualizar', task, action: "show", :class => "btn btn-info" %></td>
       </tr>
 
      <% end %>
