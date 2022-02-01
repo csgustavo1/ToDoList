@@ -13,5 +13,12 @@
    
 input {
     align-items: center;
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+label {
+    font-weight: bold;
+    color: #000;
 }
 

@@ -6,6 +6,8 @@
     </div>
   <% end %>
 
+<div class="card">
+<div class="card-content">
 
 <div class="mb-3">
     <%= form.label 'Nome', :class => 'form-label' %>
@@ -17,9 +19,29 @@
     <%= form.text_field :description, :class => 'form-control' %>
 </div>
 
- <h4> Itens </h4>
+<%= form.label 'Prioridade', :class => 'form-label' %>
+<%= form.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
 
+<br>
+
+<%= form.label 'Anexar', :class => 'form-label' %>
+<%= form.file_field :archive, :class => 'form-control' %>
+
+<br>
+<br>
+
+<%= form.label 'Data de Conlusão Prevista para a To Do', :class => 'form-label' %>
+<%= form.text_field :date, data:{ provide:'datepicker' }, class: 'date-picker-ano', placeholder: 'dd/mm/yyyy', :format => '' %> 
+
+<br>
+<br>
+
+ <h3> Itens </h3>
+
+
+<div class="row">
  <div id="items">
+
     <%= form.fields_for :items do |ff| %>
 
     <%= render 'item_fields', f: ff %>
@@ -30,28 +52,20 @@
         <%= link_to_add_association 'Adicionar item', form, :items, :class => 'btn waves-effect waves-light blue right white-text' %>
         <br><br>
       </div>
-  </div>   
-
-<br>
-<br>
-
-<%= form.label 'Prioridade', :class => 'form-label' %>
-<%= form.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
-
-<br>
-
-<div class="mb-3">
-    <%= form.label 'Anexar Arquivo', :class => 'form-label' %>
-    <%= form.file_field :archive, :class => 'form-control' %>
+      <br>
+      <br>
+  </div>
 </div>
 
+<br>
+<br>
+  
 <p>
   <label>
     <%= form.check_box(:completed) %>
-     <span style="font-weight: bold;">Tarefa Finalizada</span>
+     <span style="font-weight: bold;">To Do Finalizada?</span>
   </label>
 </p>
-
 
 <br>
 <br>
@@ -61,7 +75,21 @@
 
 <% end %>
 
+</div>
+</div>
+
 <br>
 <br>
+
+
+<script>
+$('.date-picker-ano').datepicker({
+        autoclose: true,
+        language: 'pt-BR',
+        format: 'dd-mm-yyyy',
+        todayBtn: 'linked',
+        enableOnReadonly: false
+    });  
+</script>
 
 

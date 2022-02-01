@@ -1,10 +1,47 @@
 <div class="nested-fields">
   <div class="field">
   
-    <%= f.label 'Nome do Item', :class => 'form-label' %>   
-    <%= f.text_field :name, :class => 'form-control' %>
+  <%= f.label 'Nome do Item', :class => 'form-label' %>   
+  <%= f.text_field :name, :class => 'form-control' %>
+
+  <br>
+  <br>
+
+  <%= f.label 'Data de Conlusão do Item', :class => 'form-label' %>
+  <%= f.text_field :date, data:{ provide:'datepicker' },  class: 'date-picker-ano2',  placeholder: 'dd/mm/yyyy' %> 
+
+  <br>
+  <br>
+
+  <%= f.label 'Prioridade do Item', :class => 'form-label' %>
+  <%= f.select :priority, [["Baixa", :baixa], ["Média", :media], ["Alta", :alta]], {}, {class: "form-control"} %>
+
+  <br>
+  <br>
+
+  <p>
+   <label>
+     <%= f.check_box(:completed) %>
+     <span style="font-weight: bold;">Item Finalizado?</span>
+   </label>
+  </p>
+
+  <br>
+  <br>
+
 
     <%= link_to_remove_association "remover item", f, :class => 'btn btn-danger' %>
 
   </div>
+    <h4>-------------------------------------------------------------------------</h4>
 </div>
+
+<script>
+$('.date-picker-ano2').datepicker({
+        autoclose: true,
+        language: 'pt-BR',
+        format: 'dd-mm-yyyy',
+        todayBtn: 'linked',
+        enableOnReadonly: false
+    });  
+</script>

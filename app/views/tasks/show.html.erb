@@ -1,5 +1,8 @@
 <%= render 'navbar' %>
 
+
+<div class="card">
+<div class="card-content">
 <br>
 <br>
 
@@ -18,23 +21,77 @@
 <br>
 
 <div class="form-control">
-  <p>Itens:</p>
-    <% @task.items.each do |i| %>
-    <ul>
-      <li> <%= i.name %> </li>
-    </ul>
-
-<% end %>
-
-</div>
-
-  <br>
-  <br>
-
-<div class="form-control">
   <strong>Prioridade:</strong>
   <%= @task.priority %>
 </div>
+
+<br>
+<br>
+
+<div class="form-control">
+  <strong>Data de Conclusão da To Do:</strong>
+  <%= I18n.l(@task.date, format: "%d de %B de %Y")  %>
+</div>
+
+<br>
+<br>
+
+<h4>Itens da To Do</h4> 
+
+   <% unless @task.items.present? %>
+      <div class="card border-dark text-center">
+         <div class="card-body">
+            <h2 class="card-title">Nenhum Item foi Adicionado!</h2>
+            <br>
+      </div>
+  </div>
+
+  <% else %>
+
+
+<div class="card">
+<div class="card-content">
+
+<table class="table table-bordered">
+   
+   <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Data de Conclusão</th>
+      <th>Prioridade</th>
+   </thead>
+
+   <tbody>
+   
+     <% @task.items.each do |i| %>
+
+     <% if i.completed  %>
+
+    <tr class="table-secondary">
+       <td class="striker"><%= i.name %></td>
+     <td><%= I18n.l(i.date, format: "%d de %B de %Y") %></td>
+       <td> <%= i.priority %></td>
+    </tr>
+
+    <% else %>
+
+    <tr>
+       <td><%= i.name %></td>
+       <td> <%= i.date %></td>
+       <td> <%= i.priority %></td>
+    </tr>
+
+    <% end %>
+
+    <% end %>
+
+   </tbody> 
+</table>
+
+</div>
+</div>
+
+<% end %>
 
 <br>
 <br>
@@ -44,3 +101,6 @@
 
 <br>
 <br>
+
+</div>
+</div>
