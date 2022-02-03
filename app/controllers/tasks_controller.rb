@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "To Do criada com Sucesso!" }
+        format.html { redirect_to task_url(@task), notice: "To Do Criada com Sucesso!" }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "To Do atualizada com Sucesso!" }
+        format.html { redirect_to task_url(@task), notice: "To Do Atualizada com Sucesso!" }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: "To DO removida com Sucesso!" }
+      format.html { redirect_to tasks_url, notice: "To Do removida com Sucesso!" }
       format.json { head :no_content }
     end
   end
@@ -68,6 +68,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :description, :date, :completed, :priority, :archive, items_attributes: [:id, :name, :completed, :date, :priority, :_destroy])
+      params.require(:task).permit(:name, :description, :date, :completed, :priority, :avatar, items_attributes: [:id, :name, :completed, :date, :priority, :_destroy])
     end
 end

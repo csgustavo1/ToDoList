@@ -30,7 +30,7 @@
 
 <div class="form-control">
   <strong>Data de Conclusão da To Do:</strong>
-  <%= I18n.l(@task.date, format: "%d de %B de %Y")  %>
+  <%= I18n.l(@task&.date, format: "%d de %B de %Y",  default: '--/--/----')  %>
 </div>
 
 <br>
@@ -54,11 +54,12 @@
 
 <table class="table table-bordered">
    
-   <thead>
+   <thead style="background-color: #20c997">
     <tr>
       <th>Nome</th>
       <th>Data de Conclusão</th>
       <th>Prioridade</th>
+    </tr>  
    </thead>
 
    <tbody>
@@ -69,15 +70,15 @@
 
     <tr class="table-secondary">
        <td class="striker"><%= i.name %></td>
-     <td><%= I18n.l(i.date, format: "%d de %B de %Y") %></td>
-       <td> <%= i.priority %></td>
+     <td class="striker"><%= I18n.l(i.date, format: "%d de %B de %Y",  default: '--/--/----') %></td>
+       <td class="striker"> <%= i.priority %></td>
     </tr>
 
     <% else %>
 
     <tr>
        <td><%= i.name %></td>
-       <td> <%= i.date %></td>
+      <td><%= I18n.l(i.date, format: "%d de %B de %Y",  default: '--/--/----') %></td>
        <td> <%= i.priority %></td>
     </tr>
 

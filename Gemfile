@@ -15,14 +15,28 @@ gem 'turbolinks', '~> 5.2.0'
 #cocoon
 gem 'cocoon'
 
+#FactoryBot
+gem 'factory_bot'
+
+#rspec
+gem 'rspec', '~> 3.10'
+
+#rspec-rails
+gem 'rspec-rails', '~> 5.0.0'
+
 #devise
 gem 'devise'
 
 #spinner
 gem 'tty-spinner'
 
+#Paperclip
+gem 'paperclip', '~> 6.1'
+
 #mailcatcher
 gem 'mailcatcher'
+
+gem 'factory_bot_rails'
 
 #i18n
 gem 'rails-i18n', '~> 5.1'
@@ -68,6 +82,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
