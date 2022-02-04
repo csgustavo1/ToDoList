@@ -1,12 +1,10 @@
 <%= render 'navbar' %>
-<br>
 
+<br>
 <h5 class="notice" class="alert alert-danger"><%= notice %></h5>
 <h5 class="alert"><%= alert %></h5>
 
 <h4>To do List <%= Time.now.strftime("%d/%m/%Y") %> </h4>
-
-<br>
 
   <% unless @tasks.present? %>
       <div class="card border-dark text-center">
@@ -24,6 +22,8 @@
   
   <% else %> 
 
+<input class="form-control" id="myInput" type="text" placeholder="Filtrar...">
+<br>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -38,7 +38,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="myTable">
     <% @tasks.each do |task| %>
     
      <% if task.completed  %>
@@ -61,7 +61,7 @@
       <td><%= task.name %></td>
       <td><%= task.description %></td>
       <td><%= task.priority %></td>
-     <td><%= I18n.l(task.date, format: "%d de %B de %Y", default: '--/--/----') %></td>
+      <td><%= I18n.l(task.date, format: "%d de %B de %Y", default: '--/--/----') %></td>
       <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info" %></td>
       <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
       <td><%= link_to 'Visualizar', task, action: "show", :class => "btn btn-info" %></td>
@@ -78,5 +78,17 @@
  <%= link_to 'Add To do', new_task_path, :class => 'btn btn-success' %>
 
 <% end %>
+
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 
