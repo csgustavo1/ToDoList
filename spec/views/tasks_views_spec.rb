@@ -16,7 +16,7 @@ RSpec.describe TasksController, type: :controller do
         expect(response).to render_template("index") 
     end
 
-    it "this route needs to render the form view" do
+    it "this route needs to render the new view" do
         get :new
         expect(response).to render_template("new") 
     end

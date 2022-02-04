@@ -17,22 +17,22 @@ RSpec.describe Task, type: :model do
 
   it "tests if properties are being saved in the database" do
     task = Task.new
-    task.name = "nome teste"
-    task.description = "description teste"
-    task.priority = 0
+    task.name = FFaker::Lorem.characters
+    task.description = FFaker::Lorem.characters
+    task.priority = FFaker::Random.rand(0...3)
     task.completed = true
-    task.date = DateTime.current.to_date
+    task.date = FFaker::IdentificationESCO.expedition_date
 
     expect(task.save).to be true
   end
   
   it "tests if properties are being search in the database" do
     task = Task.new
-    task.name = "nome teste"
-    task.description = "description teste"
-    task.priority = 0
+    task.name = FFaker::Lorem.characters
+    task.description = FFaker::Lorem.characters
+    task.priority = FFaker::Random.rand(0...3)
     task.completed = true
-    task.date = DateTime.current.to_date
+    task.date = FFaker::IdentificationESCO.expedition_date
 
     task.save 
 
@@ -46,10 +46,10 @@ RSpec.describe Task, type: :model do
   it "tests if properties are being deleted in the database" do
     task = Task.new
     task.name = "nome teste"
-    task.description = "description teste"
-    task.priority = 0
+    task.description = FFaker::Lorem.characters
+    task.priority = FFaker::Random.rand(0...3)
     task.completed = true
-    task.date = DateTime.current.to_date
+    task.date = FFaker::IdentificationESCO.expedition_date
 
     task.save 
 
@@ -59,5 +59,15 @@ RSpec.describe Task, type: :model do
 
     expect(Task.where(name: "nome teste").count == 0 ).to be true
 
-  end 
+  end
+  
+  describe Task do
+    context "associations" do
+      it "has many tasks to items" do 
+        should respond_to(:items)
+      end
+    end   
+  end
+
+
 end

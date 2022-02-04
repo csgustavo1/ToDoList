@@ -14,6 +14,12 @@ RSpec.describe Item, type: :model do
     expect(item.respond_to?(:date)).to be true
     expect(item.respond_to?(:completed)).to be true
   end
+
+  # describe Item do
+  #   context "associations" do
+  #     it { is_expected.to belong_to(:tasks) }
+  #   end
+  # end
   
   # it "tests if properties are being saved in the database" do
   #    task = Task.new(name: "testando", [Item.new(name: "teste")])
