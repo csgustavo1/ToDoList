@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/rails'
 
 RSpec.describe Task, type: :model do
   it "test the task instance" do
@@ -25,6 +26,19 @@ RSpec.describe Task, type: :model do
     expect(task).to be_valid
 
     expect(task.save).to be true
+  end
+
+  it "tests if properties are being not saved in the database" do
+    task = Task.new
+    task.name = nil
+    task.description = FFaker::Lorem.characters
+    task.priority = FFaker::Random.rand(0...2)
+    task.completed = true
+    task.date = FFaker::IdentificationESCO.expedition_date
+
+    expect(task).to_not be_valid
+
+    expect(task.save).to be false
   end
   
   it "tests if properties are being search in the database" do

@@ -87,6 +87,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'shoulda', '~> 4.0'
   gem 'ffaker', '~> 2.20'
+  gem 'capybara', '>= 2.15'
 end
 
 group :development do
