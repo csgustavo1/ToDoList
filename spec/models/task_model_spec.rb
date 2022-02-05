@@ -5,7 +5,6 @@ RSpec.describe Task, type: :model do
      expect(Task.new).to be_present
   end
 
-
   it "tests the properties" do
     task = Task.new
     expect(task.respond_to?(:name)).to be true
@@ -19,9 +18,11 @@ RSpec.describe Task, type: :model do
     task = Task.new
     task.name = FFaker::Lorem.characters
     task.description = FFaker::Lorem.characters
-    task.priority = FFaker::Random.rand(0...3)
+    task.priority = FFaker::Random.rand(0...2)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
+
+    expect(task).to be_valid
 
     expect(task.save).to be true
   end
@@ -30,9 +31,11 @@ RSpec.describe Task, type: :model do
     task = Task.new
     task.name = FFaker::Lorem.characters
     task.description = FFaker::Lorem.characters
-    task.priority = FFaker::Random.rand(0...3)
+    task.priority = FFaker::Random.rand(0...2)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
+
+    expect(task).to be_valid
 
     task.save 
 
@@ -47,9 +50,11 @@ RSpec.describe Task, type: :model do
     task = Task.new
     task.name = "nome teste"
     task.description = FFaker::Lorem.characters
-    task.priority = FFaker::Random.rand(0...3)
+    task.priority = FFaker::Random.rand(0...2)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
+
+    expect(task).to be_valid
 
     task.save 
 
@@ -68,6 +73,5 @@ RSpec.describe Task, type: :model do
       end
     end   
   end
-
 
 end

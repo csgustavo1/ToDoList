@@ -25,7 +25,7 @@
 <input class="form-control" id="myInput" type="text" placeholder="Filtrar...">
 <br>
 <table class="table table-bordered">
-  <thead>
+  <thead style="background-color: #20c997">
     <tr>
       <th>#</th>
       <th>Nome</th>
@@ -48,7 +48,7 @@
       <td class="striker"><%= task.name %></td>
       <td><%= task.description %></td>
       <td><%= task.priority %></td>
-       <td><%= I18n.l(task&.date, format: "%d de %B de %Y") %></td>
+      <td><%= I18n.l(task&.date, format: "%d de %B de %Y") %></td>
       <td><%= link_to 'Editar', edit_task_path(task), :class => "btn waves-effect waves-light" %></td>
       <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
       <td><%= link_to 'Visualizar', task, action: "show", :class => "btn btn-info" %></td>
@@ -79,7 +79,6 @@
 
 <% end %>
 
-
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
@@ -90,5 +89,6 @@ $(document).ready(function(){
   });
 });
 </script>
+
 
 

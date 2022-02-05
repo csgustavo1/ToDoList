@@ -15,50 +15,26 @@ RSpec.describe Item, type: :model do
     expect(item.respond_to?(:completed)).to be true
   end
 
-  # describe Item do
-  #   context "associations" do
-  #     it { is_expected.to belong_to(:tasks) }
-  #   end
-  # end
+  context "an item cannot be saved without a task" do
+    it "tests if properties are being not saved in the database" do
+      item = Item.new
+      item.name = FFaker::Lorem.characters
+      item.priority = FFaker::Random.rand(0...2)
+      item.completed = true
+      item.date = FFaker::IdentificationESCO.expedition_date
+      expect(item).to_not be_valid
+
+      expect(item.save).to be false 
+    end 
+  end
   
-  # it "tests if properties are being saved in the database" do
-  #    task = Task.new(name: "testando", [Item.new(name: "teste")])
 
-  #   expect(task.save).to be true
-  # end
-
-  # it "tests if properties are being saved in the database" do
-  #   item = Item.new
-  #   item.name = "nome teste"
-  #   item.task_id =  1
-  #   item.priority = 0
-  #   item.completed = true
-  #   item.date = DateTime.current.to_date
-
-  #   item.save
-
-  #   c2 = Item.find(item.id)
-  #   c2.name = "testando update"
-  #   expect(c2.save).to be true
-
-  #   expect(Item.where(name: "testando update").count > 0 ).to be true
-  # end
-
-  # it "tests if properties are being saved in the database" do
-  #   item = Item.new
-  #   item.name = "nome teste"
-  #   item.priority = 0
-  #   item.task_id =  1
-  #   item.completed = true
-  #   item.date = DateTime.current.to_date
-
-  #   item.save
-
-  #   expect(Item.where(name: "nome teste").count > 0 ).to be true
-
-  #   item.destroy
-
-  #   expect(Item.where(name: "nome teste").count == 0 ).to be true
-
-  # end  
+  describe Item do
+    context "associations" do
+      it "items to tasks" do 
+        should respond_to(:task)
+      end
+    end   
+  end
+  
 end
