@@ -35,10 +35,18 @@ describe "testing creation and editing of to do", type: :feature do
    
                visit '/tasks/new'
                 within("#task_form") do
-                 fill_in 'task[name]', with: 'My to do list'
-                 fill_in 'task[description]', with: 'Decricao da My to list'
+                 fill_in 'task[name]', with: FFaker::Lorem.characters
+                 fill_in 'task[description]', with: FFaker::Lorem.characters
+
+                 select "Média", :from => "task_priority"
+
+                 select "Estudo", :from => "task_category"
+
+                 fill_in 'task[date]', with: FFaker::IdentificationESCO.expedition_date
    
-                 fill_in 'task[items_attributes][0][name]', with: 'Item 1 da My to list'
+                 fill_in 'task[items_attributes][0][name]', with: FFaker::Lorem.characters
+
+                 find(:css, '#task_items_attributes_0_completed').set(true)
                  
                end
                  click_button 'commit'
@@ -49,7 +57,7 @@ describe "testing creation and editing of to do", type: :feature do
 
                  click_link 'edit_todo'
 
-                 fill_in 'task[name]', with: 'My to do list editada'
+                 fill_in 'task[name]', with: FFaker::Lorem.characters
 
                  click_button 'commit'
 

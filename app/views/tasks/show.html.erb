@@ -6,10 +6,9 @@
 <br>
 <br>
 
+<div class="card-body">
 <h3> Visualizando To Do <%= @task.name %> </h3>
 
-
-<br>
 <br>
 
 <div class="form-control">
@@ -18,7 +17,6 @@
 </div>
 
 <br>
-<br>
 
 <div class="form-control">
   <strong>Prioridade:</strong>
@@ -26,6 +24,12 @@
 </div>
 
 <br>
+
+<div class="form-control">
+  <strong>Categoria:</strong>
+  <%= @task.category %>
+</div>
+
 <br>
 
 <div class="form-control">
@@ -33,6 +37,7 @@
   <%= I18n.l(@task&.date, format: "%d de %B de %Y",  default: '--/--/----')  %>
 </div>
 
+</div>
 <br>
 <br>
 
@@ -56,7 +61,6 @@
    
    <thead style="background-color: #20c997">
     <tr>
-      <th>#</th>
       <th>Nome</th>
       <th>Data de Conclusão</th>
       <th>Prioridade</th>

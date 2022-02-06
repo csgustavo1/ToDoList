@@ -28,7 +28,6 @@ RSpec.describe Item, type: :model do
     end 
   end
   
-
   describe Item do
     context "associations" do
       it "items to tasks" do 

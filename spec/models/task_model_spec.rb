@@ -12,6 +12,7 @@ RSpec.describe Task, type: :model do
     expect(task.respond_to?(:description)).to be true
     expect(task.respond_to?(:priority)).to be true
     expect(task.respond_to?(:date)).to be true
+    expect(task.respond_to?(:category)).to be true
     expect(task.respond_to?(:completed)).to be true
   end  
 
@@ -20,6 +21,7 @@ RSpec.describe Task, type: :model do
     task.name = FFaker::Lorem.characters
     task.description = FFaker::Lorem.characters
     task.priority = FFaker::Random.rand(0...2)
+    task.category = FFaker::Random.rand(0...4)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
 
@@ -33,6 +35,7 @@ RSpec.describe Task, type: :model do
     task.name = nil
     task.description = FFaker::Lorem.characters
     task.priority = FFaker::Random.rand(0...2)
+    task.category = FFaker::Random.rand(0...4)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
 
@@ -46,6 +49,7 @@ RSpec.describe Task, type: :model do
     task.name = FFaker::Lorem.characters
     task.description = FFaker::Lorem.characters
     task.priority = FFaker::Random.rand(0...2)
+    task.category = FFaker::Random.rand(0...4)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
 
@@ -65,6 +69,7 @@ RSpec.describe Task, type: :model do
     task.name = "nome teste"
     task.description = FFaker::Lorem.characters
     task.priority = FFaker::Random.rand(0...2)
+    task.category = FFaker::Random.rand(0...4)
     task.completed = true
     task.date = FFaker::IdentificationESCO.expedition_date
 

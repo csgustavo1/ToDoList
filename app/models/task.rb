@@ -10,6 +10,7 @@ class Task < ApplicationRecord
 
     #enums...........................................................................
     enum priority: { baixa: 0, media: 1, alta: 2 }
+    enum category: { trabalho: 0, saude: 1, familia: 2, estudo: 3, outros: 4 }
 
     #validates.......................................................................
     validates :name, presence: true

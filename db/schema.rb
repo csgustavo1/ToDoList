@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_162733) do
+ActiveRecord::Schema.define(version: 2022_02_06_141004) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_162733) do
     t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.date "date"
+    t.integer "category", default: 0
   end
 
   create_table "users", force: :cascade do |t|
