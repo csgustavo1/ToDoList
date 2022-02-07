@@ -65,7 +65,7 @@
       <td><%= task.priority %></td>
       <td><%= I18n.l(task.date, format: "%d de %B de %Y", default: '--/--/----') %></td>
       <td><%= link_to 'Editar', edit_task_path(task), :class => "btn btn-info", :id => 'edit_todo' %></td>
-      <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red' %></td>
+      <td><%= link_to 'Remover', task, method: :delete, data: { confirm: 'Tem certeza que deseja apagar a tarefa?' }, :class => 'waves-effect waves-light btn red', :id => 'delete_todo' %></td>
       <td><%= link_to 'Visualizar', task, action: "show", :class => "btn btn-info" %></td>
       </tr>
 

@@ -36,7 +36,11 @@ gem 'paperclip', '~> 6.1'
 #mailcatcher
 gem 'mailcatcher'
 
+#FactoryBotRails
 gem 'factory_bot_rails'
+
+#RubocopRails
+gem 'rubocop-rails'
 
 #i18n
 gem 'rails-i18n', '~> 5.1'
@@ -88,6 +92,7 @@ group :development, :test do
   gem 'shoulda', '~> 4.0'
   gem 'ffaker', '~> 2.20'
   gem 'capybara', '>= 2.15'
+  gem 'database_cleaner-active_record', '~> 2.0', '>= 2.0.1'
 end
 
 group :development do

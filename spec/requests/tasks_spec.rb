@@ -16,7 +16,6 @@ RSpec.describe "Tasks", type: :request do
       end  
     end
      
-
     describe "POST /tasks" do
       it "checks if it will request POST params" do
         post "/tasks", :params => { :task => {:name => "My To do"} }
