@@ -27,7 +27,7 @@ RSpec.describe "Tasks", type: :request do
     describe "POST /tasks" do
       it "does not create task" do
         expect {
-          post tasks_path, :params => { :task => {:name => ""} } }.to_not change(Task, :count)        
+          post tasks_path, :params => { :task => {:name => "", :teste => "1" } } }.to_not change(Task, :count)        
       end
     end
     
