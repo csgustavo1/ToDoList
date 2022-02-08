@@ -45,6 +45,9 @@ gem 'rubocop-rails'
 #i18n
 gem 'rails-i18n', '~> 5.1'
 
+#CarrierWave
+gem 'carrierwave', '~> 2.0'
+
 #gem bootstrap-sass
 gem 'bootstrap-sass', '~> 3.3.5.1'
 

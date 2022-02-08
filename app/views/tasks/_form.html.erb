@@ -37,6 +37,23 @@
 <br>
 <br>
 
+  <p>
+  <%= form.label 'Anexos', :class => 'form-label' %>
+    <%= image_tag(@task.image.thumb.url) if @task.image? %>
+    <%= form.file_field :image, :class => 'form-control'%>
+  </p>
+
+ <br>
+
+  <p>
+    <label>
+      <%= form.check_box :remove_image %>
+      Remove avatar
+    </label>
+  </p>
+
+<br>
+
  <h3> Itens </h3>
 
 

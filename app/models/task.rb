@@ -4,9 +4,9 @@ class Task < ApplicationRecord
     has_many :items, inverse_of: :task , dependent: :destroy, :autosave => true
     accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
-    #Paperclip....................................................................... 
-    has_attached_file :avatar, styles: { medium: "200x200>", thumb: "100x100>" }
-    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+    #CarrierWave....................................................................... 
+    mount_uploader :image, FileUploader
+    serialize :images, JSON
 
     #enums...........................................................................
     enum priority: { baixa: 0, media: 1, alta: 2 }
